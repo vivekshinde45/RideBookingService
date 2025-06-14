@@ -21,8 +21,11 @@ public class RiderController {
 
     private final RiderService rideService;
 
+   
+
     @PostMapping("/create")
     public ResponseEntity<Rider> createRider(@RequestBody RiderCreateRequest request) {
+        System.out.println("Hello");
         Rider savedRider = rideService.createRider(request);
         return new ResponseEntity<>(savedRider, HttpStatus.CREATED);
     }
