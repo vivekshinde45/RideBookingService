@@ -27,7 +27,7 @@ public class RiderServiceImpl implements RiderService {
     }
 
     @Override
-    public Rider updatedRider(Long riderId, RiderCreateRequest request) throws Exception {
+    public Rider updateRider(Long riderId, RiderCreateRequest request) throws Exception {
         Optional<Rider> optionalRider = riderRepository.findById(riderId);
         if (optionalRider.isPresent()) {
             Rider rider = optionalRider.get();
@@ -44,15 +44,21 @@ public class RiderServiceImpl implements RiderService {
     }
 
     @Override
-    public Rider getRiderById(Long riderId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getRiderById'");
+    public Rider getRiderById(Long riderId) throws Exception{
+        Optional<Rider> optionalRider = riderRepository.findById(riderId);
+        if (optionalRider.isPresent()) {
+            Rider rider = optionalRider.get();
+            return rider;
+        } else {
+            throw new Exception("Rider Not Found with ID: " + riderId);
+        }
     }
 
     @Override
     public List<Rider> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        List<Rider> optionalRider = riderRepository.findAll();
+        return optionalRider;
+        
     }
 
 }
