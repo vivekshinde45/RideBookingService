@@ -1,8 +1,5 @@
 package com.future_ride.services.impl;
 
-import java.lang.foreign.Linker.Option;
-import java.util.Optional;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -66,7 +63,7 @@ public class RideServiceImpl implements RideService {
     }
 
     @Override
-    public Ride cancelRide(Long rideId) throws Exception{
+    public Ride cancelRide(Long rideId) throws Exception {
         Ride ride = getRideById(rideId);
         ride.cancel();
         return rideRepository.save(ride);
