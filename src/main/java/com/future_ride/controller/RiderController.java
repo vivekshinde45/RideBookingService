@@ -2,7 +2,6 @@ package com.future_ride.controller;
 
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +23,6 @@ import lombok.RequiredArgsConstructor;
 public class RiderController {
 
     private final RiderService rideService;
-
-   
 
     @PostMapping("/create")
     public ResponseEntity<Rider> createRider(@RequestBody RiderCreateRequest request) {
@@ -55,10 +52,10 @@ public class RiderController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Rider>> getAll(){
+    public ResponseEntity<List<Rider>> getAll() {
         try {
-             List<Rider> rider = rideService.getAll();
-            return new ResponseEntity<>(rider,HttpStatus.OK);
+            List<Rider> rider = rideService.getAll();
+            return new ResponseEntity<>(rider, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }

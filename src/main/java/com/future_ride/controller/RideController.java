@@ -2,7 +2,6 @@ package com.future_ride.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,7 +42,7 @@ public class RideController {
     }
 
     @PostMapping("/{rideId}/assign/{driverId}")
-    public ResponseEntity<Ride> assignRideToDriver(@PathVariable Long rideId,@PathVariable Long driverId){
+    public ResponseEntity<Ride> assignRideToDriver(@PathVariable Long rideId, @PathVariable Long driverId) {
         try {
             Ride ride = rideService.assignRideToDriver(rideId, driverId);
             return Utils.mapToResponseEntity(ride, HttpStatus.OK);
@@ -81,7 +80,5 @@ public class RideController {
             return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
         }
     }
-
-   
 
 }

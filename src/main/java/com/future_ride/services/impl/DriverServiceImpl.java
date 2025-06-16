@@ -6,7 +6,6 @@ import com.future_ride.repositories.DriverRepository;
 
 import com.future_ride.services.DriverService;
 
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
@@ -15,15 +14,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 @RequiredArgsConstructor
 public class DriverServiceImpl implements DriverService {
     private final DriverRepository driverRepository;
     private final ModelMapper mapper;
+
     @Override
     public Driver createDriver(DriverCreateRequest request) {
-        Driver newDriver = mapper.map(request,Driver.class);
+        Driver newDriver = mapper.map(request, Driver.class);
         return driverRepository.save(newDriver);
 
     }
@@ -31,26 +30,25 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver updateDriver(Long driverId, DriverCreateRequest request) throws Exception {
         Driver driver = getDriverById(driverId);
-        if(request.getName()!=null){
+        if (request.getName() != null) {
             driver.setName(request.getName());
         }
-        if(request.getPhoneNumber()!=null){
+        if (request.getPhoneNumber() != null) {
             driver.setPhone(request.getPhoneNumber());
         }
-        if(request.getVehicleNumber() != null){
+        if (request.getVehicleNumber() != null) {
             driver.setVehicleNumber(request.getVehicleNumber());
         }
 
         return driverRepository.save(driver);
     }
 
-
     @Override
     public Driver getDriverById(Long driverId) throws Exception {
         Optional<Driver> driver = driverRepository.findById(driverId);
-        if(driver.isPresent()){
+        if (driver.isPresent()) {
             return driver.get();
-        }else{
+        } else {
             throw new Exception("Driver is not found" + driverId);
         }
 
@@ -63,9 +61,8 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver updateRating(Long driverId, Double rating) throws Exception {
-        Driver driver = getDriverById(driverId);
+        // Driver driver = getDriverById(driverId);
         return null;
     }
 
-    
 }
