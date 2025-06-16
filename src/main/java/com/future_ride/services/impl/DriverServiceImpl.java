@@ -5,6 +5,8 @@ import com.future_ride.entities.Driver;
 import com.future_ride.repositories.DriverRepository;
 
 import com.future_ride.services.DriverService;
+
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
@@ -58,4 +60,12 @@ public class DriverServiceImpl implements DriverService {
     public List<Driver> getAll() {
         return driverRepository.findAll();
     }
+
+    @Override
+    public Driver updateRating(Long driverId, Double rating) throws Exception {
+        Driver driver = getDriverById(driverId);
+        return null;
+    }
+
+    
 }

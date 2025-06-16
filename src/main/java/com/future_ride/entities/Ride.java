@@ -56,6 +56,7 @@ public class Ride {
 
     public void complete() {
         this.status = RideStatus.COMPLETED;
+        this.endTime = LocalDateTime.now();
     }
 
     public void cancel() {
@@ -66,5 +67,10 @@ public class Ride {
     public void assignRide(Driver driver) {
         this.driver = driver;
         this.status = RideStatus.ASSIGNED;
+    }
+
+    public void startRide(){
+        this.status = RideStatus.IN_PROGRESS;
+        this.startTime = LocalDateTime.now();
     }
 }

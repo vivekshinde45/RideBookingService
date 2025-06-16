@@ -10,6 +10,8 @@ public interface DriverService {
 
     Driver updateDriver(Long driverId, DriverCreateRequest request) throws Exception;
 
+    Driver updateRating(Long driverId, Double rating) throws Exception;
+
     Driver getDriverById(Long driverId) throws Exception;
 
     List<Driver> getAll();
