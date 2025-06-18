@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.future_ride.exceptions.DriverNotFoundException;
+import com.future_ride.exceptions.InvalidRideStatusException;
 import com.future_ride.exceptions.PastRidesNotAllowedException;
+import com.future_ride.exceptions.RideCancelValidator;
 import com.future_ride.exceptions.RideNotFoundException;
 import com.future_ride.exceptions.RiderNotFoundException;
 
@@ -20,6 +22,25 @@ public class GlobalExceptionHandler {
                 .build();
         return buildErrorResponseEntity(error);
     }
+
+    @ExceptionHandler(RideCancelValidator.class)
+    public ResponseEntity<ApiResponse<?>> RideCancelValidatorExceptionHandler(RideCancelValidator exception) {
+        ApiError error = ApiError.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .message(exception.getMessage())
+                .build();
+        return buildErrorResponseEntity(error);
+    }
+
+    @ExceptionHandler(InvalidRideStatusException.class)
+    public ResponseEntity<ApiResponse<?>> InvalidRideStatusExceptionHandler(InvalidRideStatusException exception) {
+        ApiError error = ApiError.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .message(exception.getMessage())
+                .build();
+        return buildErrorResponseEntity(error);
+    }
+
 
     @ExceptionHandler(RideNotFoundException.class)
     public ResponseEntity<ApiResponse<?>> RideNotFoundExceptionHandler(RideNotFoundException exception) {
