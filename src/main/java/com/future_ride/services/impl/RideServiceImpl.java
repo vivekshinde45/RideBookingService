@@ -1,6 +1,5 @@
 package com.future_ride.services.impl;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.future_ride.dto.RideRequestDto;
