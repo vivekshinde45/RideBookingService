@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "de542173-980c-49ed-9d64-c63bb2e955c6",
+		"name": "Future_Ride_Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21795092"
+	},
+	"item": [
+		{
+			"name": "Driver",
+			"item": [
+				{
+					"name": "createDriver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vivek\",\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"vehicleNumber\": \"KA09DR5748\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/driver/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"driver",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDriver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vivek\",\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"vehicleNumber\": \"MH17DA0758\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/driver/2/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"driver",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDriverById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vivek\",\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"vehicleNumber\": \"MH17DA0758\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/driver/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"driver",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllDrivers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vivek\",\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"vehicleNumber\": \"MH17DA0758\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/driver",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"driver"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rider",
+			"item": [
+				{
+					"name": "createRider",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Karan\",\r\n    \"phoneNumber\": \"987654328\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/rider/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rider",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRider",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vivek Shinde\",\r\n    \"phoneNumber\": \"9876548765\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/rider/2/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rider",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRiderById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vivek Shinde\",\r\n    \"phoneNumber\": \"9876548765\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/rider/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rider",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllRiders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vivek Shinde\",\r\n    \"phoneNumber\": \"9876548765\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/rider",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rider"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ride",
+			"item": [
+				{
+					"name": "createRide",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"source\": \"sangamner\",\r\n    \"destination\": \"nashik\",\r\n    \"expectedStartTime\": \"2025-06-20T17:00:30\",\r\n    \"expectedEndTime\": \"2025-06-20T18:00:30\",\r\n    \"riderId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ride/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ride",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRideById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"source\": \"sangamner\",\r\n    \"destination\": \"nashik\",\r\n    \"expectedStartTime\": \"2025-12-03T10:15:30\",\r\n    \"expectedEndTime\": \"2025-12-03T11:15:30\",\r\n    \"riderId\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ride/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ride",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignDriverToRide",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"source\": \"sangamner\",\r\n    \"destination\": \"nashik\",\r\n    \"expectedStartTime\": \"2025-06-20T17:00:30\",\r\n    \"expectedEndTime\": \"2025-06-20T18:00:30\",\r\n    \"riderId\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ride/1/assign/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ride",
+								"1",
+								"assign",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "startRide",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"source\": \"sangamner\",\r\n    \"destination\": \"nashik\",\r\n    \"expectedStartTime\": \"2025-06-20T17:00:30\",\r\n    \"expectedEndTime\": \"2025-06-20T18:00:30\",\r\n    \"riderId\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ride/1/start",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ride",
+								"1",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "completeRide",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
