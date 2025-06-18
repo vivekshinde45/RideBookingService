@@ -40,7 +40,7 @@ public class Ride {
     public Ride(String src, String dst, LocalDateTime expectedStartTime, LocalDateTime expectedEndTime) {
         this.soruce = src;
         this.destination = dst;
-        this.expectedStartTime = expectedEndTime;
+        this.expectedStartTime = expectedStartTime;
         this.expectedEndTime = expectedEndTime;
         this.status = RideStatus.WAITING;
     }
@@ -69,7 +69,7 @@ public class Ride {
         this.status = RideStatus.ASSIGNED;
     }
 
-    public void startRide(){
+    public void startRide() {
         this.status = RideStatus.IN_PROGRESS;
         this.startTime = LocalDateTime.now();
     }

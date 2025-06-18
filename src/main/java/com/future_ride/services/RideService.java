@@ -6,17 +6,14 @@ import com.future_ride.entities.Ride;
 public interface RideService {
     Ride createRide(RideRequestDto request);
 
-    Ride getRideById(Long rideId) throws Exception;
+    Ride getRideById(Long rideId);
 
-    Ride assignRideToDriver(Long rideId,Long driverId) throws Exception;
+    Ride assignRideToDriver(Long rideId, Long driverId) throws Exception;
 
-    Ride startRide(Long rideId) throws Exception; //In progress
+    Ride startRide(Long rideId) throws Exception; // In progress
 
     Ride completeRide(Long rideId) throws Exception;
 
     Ride cancelRide(Long rideId) throws Exception;
 
-
-
-    
 }

@@ -27,6 +27,7 @@ public class RideController {
             Ride ride = rideService.createRide(request);
             return Utils.mapToResponseEntity(ride, HttpStatus.CREATED);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
         }
     }
@@ -37,6 +38,7 @@ public class RideController {
             Ride ride = rideService.getRideById(rideId);
             return Utils.mapToResponseEntity(ride, HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
         }
     }
@@ -47,6 +49,7 @@ public class RideController {
             Ride ride = rideService.assignRideToDriver(rideId, driverId);
             return Utils.mapToResponseEntity(ride, HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
         }
     }
@@ -57,6 +60,7 @@ public class RideController {
             Ride ride = rideService.startRide(rideId);
             return Utils.mapToResponseEntity(ride, HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
         }
     }
@@ -67,6 +71,7 @@ public class RideController {
             Ride ride = rideService.cancelRide(rideId);
             return Utils.mapToResponseEntity(ride, HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
         }
     }
@@ -77,6 +82,7 @@ public class RideController {
             Ride ride = rideService.completeRide(rideId);
             return Utils.mapToResponseEntity(ride, HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
         }
     }

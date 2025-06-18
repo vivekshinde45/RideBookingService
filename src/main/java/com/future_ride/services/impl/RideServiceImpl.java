@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.future_ride.dto.RideRequestDto;
 import com.future_ride.entities.Driver;
 import com.future_ride.entities.Ride;
+import com.future_ride.exceptions.RideNotFoundException;
 import com.future_ride.repositories.RideRepository;
 import com.future_ride.services.DriverService;
 import com.future_ride.services.RideService;
@@ -16,28 +17,20 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RideServiceImpl implements RideService {
     private final RideRepository rideRepository;
-    private final ModelMapper modelMapper;
     private final DriverService driverService;
 
     @Override
     public Ride createRide(RideRequestDto request) {
-
-        Ride ride = modelMapper.map(request, Ride.class);
+        Ride ride = new Ride(request.getSource(), request.getDestination(), request.getExpectedStartTime(),
+                request.getExpectedEndTime());
         return rideRepository.save(ride);
-
     }
 
     @Override
-    public Ride getRideById(Long rideId) throws Exception {
-
-        // Optional<Ride> optionalRide = rideRepository.findById(rideId);
-        // if (optionalRide.isPresent()) {
-        // return optionalRide.get();
-        // } else {
-        // throw new Exception("Ride not found with rideId" + rideId);
-        // }
-        return rideRepository.findById(rideId).orElseThrow(() -> new Exception("Ride not found with rideId" + rideId));
-
+    public Ride getRideById(Long rideId) {
+        return rideRepository.findById(rideId)
+                .orElseThrow(
+                        () -> new RideNotFoundException("Ride not found with rideId" + rideId));
     }
 
     @Override
