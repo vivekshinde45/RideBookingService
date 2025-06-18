@@ -23,68 +23,38 @@ public class RideController {
 
     @PostMapping("/create")
     public ResponseEntity<Ride> createRide(@RequestBody RideRequestDto request) {
-        try {
-            Ride ride = rideService.createRide(request);
-            return Utils.mapToResponseEntity(ride, HttpStatus.CREATED);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
-        }
+        Ride ride = rideService.createRide(request);
+        return Utils.mapToResponseEntity(ride, HttpStatus.CREATED);
     }
 
     @GetMapping("/{rId}")
     public ResponseEntity<Ride> getRideById(@PathVariable(name = "rId") Long rideId) {
-        try {
-            Ride ride = rideService.getRideById(rideId);
-            return Utils.mapToResponseEntity(ride, HttpStatus.OK);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
-        }
+        Ride ride = rideService.getRideById(rideId);
+        return Utils.mapToResponseEntity(ride, HttpStatus.OK);
     }
 
     @PostMapping("/{rideId}/assign/{driverId}")
     public ResponseEntity<Ride> assignRideToDriver(@PathVariable Long rideId, @PathVariable Long driverId) {
-        try {
-            Ride ride = rideService.assignRideToDriver(rideId, driverId);
-            return Utils.mapToResponseEntity(ride, HttpStatus.OK);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
-        }
+        Ride ride = rideService.assignRideToDriver(rideId, driverId);
+        return Utils.mapToResponseEntity(ride, HttpStatus.OK);
     }
 
     @PostMapping("/{rideId}/start")
     public ResponseEntity<Ride> startRide(@PathVariable Long rideId) {
-        try {
-            Ride ride = rideService.startRide(rideId);
-            return Utils.mapToResponseEntity(ride, HttpStatus.OK);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
-        }
+        Ride ride = rideService.startRide(rideId);
+        return Utils.mapToResponseEntity(ride, HttpStatus.OK);
     }
 
     @PostMapping("/{rideId}/cancel")
     public ResponseEntity<Ride> cancelRide(@PathVariable Long rideId) {
-        try {
-            Ride ride = rideService.cancelRide(rideId);
-            return Utils.mapToResponseEntity(ride, HttpStatus.OK);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
-        }
+        Ride ride = rideService.cancelRide(rideId);
+        return Utils.mapToResponseEntity(ride, HttpStatus.OK);
     }
 
     @PostMapping("/{rideId}/complete")
     public ResponseEntity<Ride> completeRide(@PathVariable Long rideId) {
-        try {
-            Ride ride = rideService.completeRide(rideId);
-            return Utils.mapToResponseEntity(ride, HttpStatus.OK);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return Utils.mapToResponseEntity(null, HttpStatus.BAD_REQUEST);
-        }
+        Ride ride = rideService.completeRide(rideId);
+        return Utils.mapToResponseEntity(ride, HttpStatus.OK);
     }
 
 }

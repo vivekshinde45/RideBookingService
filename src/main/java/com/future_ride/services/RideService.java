@@ -8,12 +8,12 @@ public interface RideService {
 
     Ride getRideById(Long rideId);
 
-    Ride assignRideToDriver(Long rideId, Long driverId) throws Exception;
+    Ride assignRideToDriver(Long rideId, Long driverId);
 
-    Ride startRide(Long rideId) throws Exception; // In progress
+    Ride startRide(Long rideId); // ride is In progress
 
-    Ride completeRide(Long rideId) throws Exception;
+    Ride completeRide(Long rideId);
 
-    Ride cancelRide(Long rideId) throws Exception;
+    Ride cancelRide(Long rideId);
 
 }

@@ -8,9 +8,9 @@ import com.future_ride.entities.Rider;
 public interface RiderService {
     Rider createRider(RiderCreateRequest request);
 
-    Rider updateRider(Long riderId, RiderCreateRequest request) throws Exception;
+    Rider updateRider(Long riderId, RiderCreateRequest request);
 
-    Rider getRiderById(Long riderId) throws Exception;
+    Rider getRiderById(Long riderId);
 
     List<Rider> getAll();
 }

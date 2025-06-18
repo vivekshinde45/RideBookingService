@@ -17,34 +17,26 @@ public class DriverController {
     private final DriverService driverService;
 
     @PostMapping("/create")
-    public ResponseEntity<Driver> createDriver(@RequestBody DriverCreateRequest request){
+    public ResponseEntity<Driver> createDriver(@RequestBody DriverCreateRequest request) {
         Driver driver = driverService.createDriver(request);
         return new ResponseEntity<>(driver, HttpStatus.CREATED);
     }
 
-    @PostMapping("/update/{driverId}")
-    public ResponseEntity<Driver> updateDriver(@PathVariable Long driverId,@RequestBody DriverCreateRequest request){
-        try {
-            Driver updatedDriver = driverService.updateDriver(driverId,request);
-            return new ResponseEntity<>(updatedDriver,HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
-        }
+    @PostMapping("/{driverId}/update")
+    public ResponseEntity<Driver> updateDriver(@PathVariable Long driverId, @RequestBody DriverCreateRequest request) {
+        Driver updatedDriver = driverService.updateDriver(driverId, request);
+        return new ResponseEntity<>(updatedDriver, HttpStatus.OK);
     }
 
     @GetMapping("/{driverId}")
-    public ResponseEntity<Driver> getDriverById(@PathVariable Long driverId){
-         try {
-             Driver driver = driverService.getDriverById(driverId);
-             return new ResponseEntity<>(driver,HttpStatus.OK);
-         }catch(Exception e){
-             return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
-         }
+    public ResponseEntity<Driver> getDriverById(@PathVariable Long driverId) {
+        Driver driver = driverService.getDriverById(driverId);
+        return new ResponseEntity<>(driver, HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<Driver>> getAll(){
-        List<Driver> driver =  driverService.getAll();
-        return new ResponseEntity<>(driver,HttpStatus.OK);
+    public ResponseEntity<List<Driver>> getAll() {
+        List<Driver> driver = driverService.getAll();
+        return new ResponseEntity<>(driver, HttpStatus.OK);
     }
 }

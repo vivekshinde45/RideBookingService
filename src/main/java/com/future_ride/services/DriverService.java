@@ -8,11 +8,11 @@ import java.util.List;
 public interface DriverService {
     Driver createDriver(DriverCreateRequest request);
 
-    Driver updateDriver(Long driverId, DriverCreateRequest request) throws Exception;
+    Driver updateDriver(Long driverId, DriverCreateRequest request);
 
-    Driver updateRating(Long driverId, Double rating) throws Exception;
+    Driver updateRating(Long driverId, Double rating);
 
-    Driver getDriverById(Long driverId) throws Exception;
+    Driver getDriverById(Long driverId);
 
     List<Driver> getAll();
 }

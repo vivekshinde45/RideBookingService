@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.future_ride.exceptions.DriverNotFoundException;
+import com.future_ride.exceptions.PastRidesNotAllowedException;
 import com.future_ride.exceptions.RideNotFoundException;
 import com.future_ride.exceptions.RiderNotFoundException;
 
@@ -21,6 +23,24 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RideNotFoundException.class)
     public ResponseEntity<ApiResponse<?>> RideNotFoundExceptionHandler(RideNotFoundException exception) {
+        ApiError error = ApiError.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .message(exception.getMessage())
+                .build();
+        return buildErrorResponseEntity(error);
+    }
+
+    @ExceptionHandler(DriverNotFoundException.class)
+    public ResponseEntity<ApiResponse<?>> DriverNotFoundExceptionHandler(DriverNotFoundException exception) {
+        ApiError error = ApiError.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .message(exception.getMessage())
+                .build();
+        return buildErrorResponseEntity(error);
+    }
+
+    @ExceptionHandler(PastRidesNotAllowedException.class)
+    public ResponseEntity<ApiResponse<?>> PastRidesNotAllowedExceptionHandler(PastRidesNotAllowedException exception) {
         ApiError error = ApiError.builder()
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .message(exception.getMessage())
