@@ -1,22 +1,54 @@
 package com.future_ride.advice;
 
-import java.time.LocalDateTime;
-
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.future_ride.exceptions.DriverNotFoundException;
+import com.future_ride.exceptions.PastRidesNotAllowedException;
+import com.future_ride.exceptions.RideNotFoundException;
 import com.future_ride.exceptions.RiderNotFoundException;
 
-// @RestControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
-    // @ExceptionHandler(RiderNotFoundException.class)
-    // public ResponseEntity<ApiResponse<?>>
-    // RiderNotFoundExceptionHandler(RiderNotFoundException exception) {
-    // ApiResponse response = new ApiResponse<>();
-    // response.setTimeStamp(LocalDateTime.now());
-    // response.setError(exception.getMessage());
-    // return ResponseEntity.status(HttpStatusCode.valueOf(404)).body(response);
-    // }
+    @ExceptionHandler(RiderNotFoundException.class)
+    public ResponseEntity<ApiResponse<?>> RiderNotFoundExceptionHandler(RiderNotFoundException exception) {
+        ApiError error = ApiError.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .message(exception.getMessage())
+                .build();
+        return buildErrorResponseEntity(error);
+    }
+
+    @ExceptionHandler(RideNotFoundException.class)
+    public ResponseEntity<ApiResponse<?>> RideNotFoundExceptionHandler(RideNotFoundException exception) {
+        ApiError error = ApiError.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .message(exception.getMessage())
+                .build();
+        return buildErrorResponseEntity(error);
+    }
+
+    @ExceptionHandler(DriverNotFoundException.class)
+    public ResponseEntity<ApiResponse<?>> DriverNotFoundExceptionHandler(DriverNotFoundException exception) {
+        ApiError error = ApiError.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .message(exception.getMessage())
+                .build();
+        return buildErrorResponseEntity(error);
+    }
+
+    @ExceptionHandler(PastRidesNotAllowedException.class)
+    public ResponseEntity<ApiResponse<?>> PastRidesNotAllowedExceptionHandler(PastRidesNotAllowedException exception) {
+        ApiError error = ApiError.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .message(exception.getMessage())
+                .build();
+        return buildErrorResponseEntity(error);
+    }
+
+    private ResponseEntity<ApiResponse<?>> buildErrorResponseEntity(ApiError error) {
+        return new ResponseEntity<>(new ApiResponse<>(error), error.getStatus());
+    }
 }
